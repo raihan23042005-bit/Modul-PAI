@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD & Modul Ajar Interaktif - PAI & BP Kelas X Bab 3</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Arabic Font (Amiri) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        quran: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white !important; color: black !important; }
+            .card-box { border: 1px solid #ccc !important; box-shadow: none !important; }
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            line-height: 2.2;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- Top Bar Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand & Title -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-600/30">
+                    <i class="fa-solid fa-book-quran"></i>
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-amber-600 bg-clip-text text-transparent leading-tight">
+                        PAI & BP Kelas X
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Bab 3: Menghindari Akhlak Mazmumah</p>
+                </div>
+            </div>
+
+            <!-- Role Switcher & Utilities -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <!-- Mode Indicator Badge -->
+                <div id="mode-badge" class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 flex items-center space-x-1.5 border border-emerald-300 dark:border-emerald-800">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span id="mode-text">Modus Siswa</span>
+                </div>
+
+                <!-- Toggle Role Button -->
+                <button onclick="toggleUserMode()" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 transition flex items-center space-x-1">
+                    <i class="fa-solid fa-user-gear text-emerald-600 dark:text-emerald-400"></i>
+                    <span class="hidden sm:inline">Ubah Ke</span> <span id="toggle-target-text">Modus Guru</span>
+                </button>
+
+                <!-- Save / Print Button -->
+                <button onclick="window.print()" class="p-2 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:bg-slate-700 dark:text-emerald-300 transition" title="Cetak / Simpan PDF">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-900 text-white py-8 px-4 sm:px-6 lg:px-8 shadow-inner relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-quran select-none pointer-events-none">
+            ﰀ
+        </div>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+            <div class="space-y-2 max-w-3xl">
+                <div class="inline-flex items-center space-x-2 bg-emerald-500/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-emerald-200 border border-emerald-400/30">
+                    <span><i class="fa-solid fa-graduation-cap"></i> Kurikulum Merdeka (Edisi 2025/2026)</span>
+                    <span>•</span>
+                    <span>2 Pertemuan (5 JP @ 45 Mnt)</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+                    Menghindari Sifat Berfoya-foya, Ria, Sumah, Takabur, dan Hasad
+                </h2>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Pembersihan jiwa (<span class="italic font-serif">tazkiyatun nufus</span>) melalui pengelolaan niat yang lurus, kesederhanaan, dan pengendalian diri di era digital dan media sosial.
+                </p>
+            </div>
+
+            <!-- Quick Progress Tracker Card -->
+            <div class="w-full md:w-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 text-center min-w-[220px]">
+                <div class="text-xs text-emerald-200 font-medium mb-1">Status Pengerjaan LKPD</div>
+                <div id="completion-status" class="text-2xl font-bold text-amber-400">0% Selesai</div>
+                <div class="w-full bg-slate-700/50 rounded-full h-2 mt-2 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-amber-400 to-emerald-400 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-16 z-40 shadow-xs no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-2 sm:space-x-6 overflow-x-auto py-2 no-scrollbar scroll-smooth">
+                <button onclick="switchTab('tab-modul')" id="btn-tab-modul" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center space-x-2 whitespace-nowrap transition-all duration-200 bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Modul Ajar</span>
+                </button>
+                <button onclick="switchTab('tab-materi')" id="btn-tab-materi" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center space-x-2 whitespace-nowrap transition-all duration-200 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Bahan Ajar & Dalil</span>
+                </button>
+                <button onclick="switchTab('tab-lkpd')" id="btn-tab-lkpd" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center space-x-2 whitespace-nowrap transition-all duration-200 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>LKPD Interaktif</span>
+                </button>
+                <button onclick="switchTab('tab-kuis')" id="btn-tab-kuis" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center space-x-2 whitespace-nowrap transition-all duration-200 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Kuis & Asesmen</span>
+                </button>
+                <button onclick="switchTab('tab-rubrik')" id="btn-tab-rubrik" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center space-x-2 whitespace-nowrap transition-all duration-200 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Rubrik & Refleksi</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- ================= TAB 1: MODUL AJAR (INFORMASI UMUM & SKENARIO) ================= -->
+        <section id="tab-modul" class="tab-content space-y-8">
+            
+            <!-- Information Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Identitas Modul Card -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-300 flex items-center space-x-0 justify-center">
+                            <i class="fa-solid fa-id-card"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white">Identitas Modul</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm space-y-2.5 text-slate-600 dark:text-slate-300">
+                        <li class="flex justify-between border-b pb-1 dark:border-slate-700">
+                            <span class="text-slate-400">Mata Pelajaran:</span>
+                            <span class="font-medium">PAI & BP</span>
+                        </li>
+                        <li class="flex justify-between border-b pb-1 dark:border-slate-700">
+                            <span class="text-slate-400">Kelas / Semester:</span>
+                            <span class="font-medium">X (Sepuluh) / 1 (Ganjil)</span>
+                        </li>
+                        <li class="flex justify-between border-b pb-1 dark:border-slate-700">
+                            <span class="text-slate-400">Alokasi Waktu:</span>
+                            <span class="font-medium">2 Pertemuan (5 JP @45m)</span>
+                        </li>
+                        <li class="flex justify-between border-b pb-1 dark:border-slate-700">
+                            <span class="text-slate-400">Tahun Ajaran:</span>
+                            <span class="font-medium">2025 / 2026</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Target Siswa:</span>
+                            <span class="font-medium">Reguler / Heterogen</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Profil Pelajar Pancasila Card -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-9 h-9 rounded-lg bg-amber-100 dark:bg-amber-900 text-amber-600 dark:text-amber-300 flex items-center justify-center">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white">Dimensi Profil Lulusan</h3>
+                    </div>
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="bg-slate-50 dark:bg-slate-700/50 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <span class="font-bold text-emerald-600 dark:text-emerald-400 block mb-0.5">1. Beriman & Bertakwak:</span>
+                            <p class="text-slate-600 dark:text-slate-300">Tazkiyatun nufus dari penyakit hati sebagai wujud cinta & rasa takut kepada Allah Swt.</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <span class="font-bold text-amber-600 dark:text-amber-400 block mb-0.5">2. Kemandirian:</span>
+                            <p class="text-slate-600 dark:text-slate-300">Self-control dalam membatasi perilaku konsumtif dan unggahan media sosial.</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <span class="font-bold text-indigo-600 dark:text-indigo-400 block mb-0.5">3. Penalaran Kritis:</span>
+                            <p class="text-slate-600 dark:text-slate-300">Menganalisis fenomena flexing & pamer digital secara saintifik dan syar'i.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sarana & Metode Card -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-9 h-9 rounded-lg bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 flex items-center justify-center">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 dark:text-white">Model & Sarana</h3>
+                    </div>
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">Model Pembelajaran:</span>
+                            <p>Problem-Based Learning (PBL) & Interactive / Blended Learning.</p>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">Metode Utama:</span>
+                            <p>Diskusi kelompok, studi kasus digital (Flexing & Medsos), ceramah interaktif, & refleksi.</p>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">Sarana Digital:</span>
+                            <p>Smartphone/Laptop, Proyektor, Platform Medsos (Instagram/TikTok) sebagai studi kasus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tujuan Pembelajaran & Pertanyaan Pemantik -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-bullseye text-emerald-600"></i>
+                        <span>Tujuan Pembelajaran (TP)</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60">
+                            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-600 text-white mb-2">TP 1</span>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-medium">Menjelaskan pengertian berfoya-foya (israf & tabzir), ria (khalis & syirik), sumah, takabur (ujub), dan hasad secara komprehensif.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60">
+                            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-600 text-white mb-2">TP 2</span>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-medium">Menganalisis dalil Al-Qur'an (Q.S. Al-Isra': 26-27, Q.S. Al-Ma'un: 4-7, Q.S. Al-Baqarah: 264, Q.S. Al-A'raf: 36, Q.S. An-Nisa': 32) & Hadis Nabi Saw.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60">
+                            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-600 text-white mb-2">TP 3</span>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-medium">Merumuskan serta menerapkan langkah konkret mengendalikan diri dari sikap mazmumah di era digital & media sosial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-200 dark:border-slate-700">
+
+                <!-- Pertanyaan Pemantik & Pemahaman Bermakna -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-3 flex items-center space-x-2">
+                            <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                            <span>Pertanyaan Pemantik</span>
+                        </h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-amber-500 font-bold">1.</span>
+                                <span>Mengapa fenomena <i>flexing</i> (pamer harta/gaya hidup) & memposting ibadah di media sosial sangat marak dilakukan di era modern?</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-amber-500 font-bold">2.</span>
+                                <span>Apa yang terjadi pada nilai amalan jika diniatkan untuk mencari pujian manusia, bukan rida Allah Swt.?</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-amber-500 font-bold">3.</span>
+                                <span>Mengapa Rasulullah Saw. mengumpamakan dengki (hasad) seperti api yang memakan kayu bakar hingga tak bersisa?</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-amber-50/60 dark:bg-amber-950/30 p-4 rounded-xl border border-amber-200 dark:border-amber-900/50">
+                        <h4 class="font-bold text-amber-800 dark:text-amber-300 mb-2 flex items-center space-x-2">
+                            <i class="fa-solid fa-gem"></i>
+                            <span>Pemahaman Bermakna</span>
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                            Islam mengatur seluruh aspek kehidupan secara <i>kafah</i> (<span class="italic">hablun minallah</span> & <span class="italic">hablun minannas</span>). Menghindari akhlak mazmumah bukan sebatas hafalan teoritis, melainkan proses <b>tazkiyatun nufus</b>. Melalui niat yang lurus dan pola hidup sederhana, peserta didik dapat mewujudkan kedamaian batin, sikap <i>tawaduk</i>, empati, dan keharmonisan sosial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skenario Pembelajaran Timeline -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-2">
+                    <i class="fa-solid fa-timeline text-emerald-600"></i>
+                    <span>Skenario Pembelajaran (2 Pertemuan)</span>
+                </h3>
+
+                <div class="space-y-8">
+                    <!-- Pertemuan 1 -->
+                    <div class="border-l-4 border-emerald-500 pl-4 sm:pl-6 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h4 class="font-bold text-emerald-700 dark:text-emerald-400 text-base">PERTEMUAN 1 (2 JP x 45 Menit)</h4>
+                            <span class="px-2.5 py-1 bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 rounded-md text-xs font-semibold">Berfoya-foya, Ria, & Sumah</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="font-bold text-slate-800 dark:text-slate-200 block mb-1">Pendahuluan (15 Mnt):</span>
+                                <p class="text-slate-600 dark:text-slate-300">Salam, doa, presensi, & apersepsi diagnostik dengan menampilkan fenomena flexing selebgram.</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="font-bold text-slate-800 dark:text-slate-200 block mb-1">Kegiatan Inti (60 Mnt - PBL):</span>
+                                <p class="text-slate-600 dark:text-slate-300">Diskusi kelompok LKPD 1, analisis perbedaan Israf vs Tabzir, Ria Khalis/Syirik vs Sumah, dan solusi bermedia sosial.</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="font-bold text-slate-800 dark:text-slate-200 block mb-1">Penutup (15 Mnt):</span>
+                                <p class="text-slate-600 dark:text-slate-300">Rangkuman bersama, refleksi diri kebiasaan belanja/medsos, dan doa kaffaratul majelis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pertemuan 2 -->
+                    <div class="border-l-4 border-amber-500 pl-4 sm:pl-6 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h4 class="font-bold text-amber-700 dark:text-amber-400 text-base">PERTEMUAN 2 (3 JP x 45 Menit)</h4>
+                            <span class="px-2.5 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-md text-xs font-semibold">Takabur (Ujub) & Hasad</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="font-bold text-slate-800 dark:text-slate-200 block mb-1">Pendahuluan (15 Mnt):</span>
+                                <p class="text-slate-600 dark:text-slate-300">Review materi ria/sumah dan keterkaitannya dengan timbulnya rasa takabur & hasad.</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="font-bold text-slate-800 dark:text-slate-200 block mb-1">Kegiatan Inti (105 Mnt - Interactive):</span>
+                                <p class="text-slate-600 dark:text-slate-300">Analisis matriks kasus nyata (LKPD 2), simulasi/roleplay penanganan iri & sombong, serta penguatan konsep Ghibthah.</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="font-bold text-slate-800 dark:text-slate-200 block mb-1">Penutup (15 Mnt):</span>
+                                <p class="text-slate-600 dark:text-slate-300">Kesimpulan Tazkiyatun Nufus, penjelasan tugas proyek poster/infografis Gen-Z, dan doa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 2: BAHAN AJAR & DALIL ================= -->
+        <section id="tab-materi" class="tab-content hidden space-y-8">
+            <!-- Header Section -->
+            <div class="bg-emerald-900 text-white p-6 rounded-2xl shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-xl font-bold mb-1">Ringkasan Bahan Ajar & Dalil Syar'i</h3>
+                    <p class="text-xs sm:text-sm text-emerald-200">Panduan materi utama untuk diskusi LKPD dan penguatan konsep akhlak mazmumah.</p>
+                </div>
+                <div class="flex space-x-2 text-xs">
+                    <span class="px-3 py-1 bg-emerald-800 rounded-lg">5 Sifat Mazmumah</span>
+                    <span class="px-3 py-1 bg-amber-600 rounded-lg">Ayat & Hadis Pilihan</span>
+                </div>
+            </div>
+
+            <!-- Material Tabs / Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- 1. Berfoya-foya Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-sm">1</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg">Berfoya-foya (Israf & Tabzir)</h4>
+                    </div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                        <p><b>Israf:</b> Melampaui batas dalam membelanjakan harta untuk hal-hal yang halal (konsumtif berlebihan).</p>
+                        <p><b>Tabzir:</b> Membuang-buang harta untuk hal yang tidak berdaya guna atau berorientasi maksiat/sia-sia.</p>
+                        <p><b>Solusi Islami:</b> Bersikap <i>kanaah</i> (merasa cukup), menyusun skala prioritas (dharuriyyat, hajiyyat, tahsiniyyat), serta membiasakan sedekah.</p>
+                    </div>
+
+                    <!-- Quran Box Q.S. Al-Isra 26-27 -->
+                    <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-emerald-200 dark:border-emerald-900/60 space-y-2">
+                        <div class="flex justify-between items-center text-xs text-emerald-700 dark:text-emerald-400 font-bold">
+                            <span>Q.S. Al-Isra' [17]: 27</span>
+                            <span>Larangan Tabzir</span>
+                        </div>
+                        <div class="text-right text-xl sm:text-2xl arabic-text text-slate-800 dark:text-emerald-200 font-quran py-2">
+                            إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ ۖ وَكَانَ الشَّيْطَانُ لِرَبِّهِ كَفُورًا
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 italic">
+                            "Sesungguhnya orang-orang yang pemboros itu adalah saudara-saudara setan dan setan itu adalah sangat ingkar kepada Tuhannya."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Ria & Sumah Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-sm">2</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg">Ria & Sumah (Penyakit Niat)</h4>
+                    </div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                        <p><b>Ria:</b> Menampakkan amalan ibadah agar dilihat manusia demi mendapat sanjungan.</p>
+                        <ul class="list-disc pl-5 space-y-1 text-xs">
+                            <li><b>Ria Khalis:</b> Beramal murni hanya karena ingin dipuji manusia (tanpa niat karena Allah).</li>
+                            <li><b>Ria Syirik:</b> Beramal karena Allah sekaligus mengharap pujian manusia.</li>
+                        </ul>
+                        <p><b>Sumah:</b> Memperdengarkan atau menceritakan amalan kebaikan yang telah dilakukan kepada orang lain agar disanjung.</p>
+                    </div>
+
+                    <!-- Quran Box Q.S. Al-Ma'un 4-7 -->
+                    <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-amber-200 dark:border-amber-900/60 space-y-2">
+                        <div class="flex justify-between items-center text-xs text-amber-700 dark:text-amber-400 font-bold">
+                            <span>Q.S. Al-Ma'un [107]: 4-6</span>
+                            <span>Ancaman Orang Ria</span>
+                        </div>
+                        <div class="text-right text-xl arabic-text text-slate-800 dark:text-amber-200 font-quran py-1">
+                            فَوَيْلٌ لِلْمُصَلِّينَ ۝ الَّذِينَ هُمْ عَنْ صَلَاتِهِمْ سَاهُونَ ۝ الَّذِينَ هُمْ يُرَاءُونَ
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 italic">
+                            "Maka celakalah orang yang shalat, (yaitu) orang-orang yang lalai terhadap shalatnya, yang berbuat ria..."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Takabur & Ujub Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">3</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg">Takabur (Sombong) & Ujub</h4>
+                    </div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                        <p><b>Ujub:</b> Mengagumi kelebihan diri sendiri secara berlebihan (merasa diri paling hebat).</p>
+                        <p><b>Takabur:</b> Manifestasi luar dari ujub, yaitu merasa lebih tinggi, menolak kebenaran (<span class="italic">batharul haq</span>), dan meremehkan manusia (<span class="italic">ghamthun naas</span>).</p>
+                        <p><b>Contoh Al-Qur'an:</b> Kesombongan Iblis yang menolak sujud kepada Nabi Adam a.s. & kesombongan Qarun atas hartanya.</p>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-300">
+                        <span class="font-bold text-indigo-600 dark:text-indigo-400">Penyebab Takabur:</span> Popularitas medsos, kecerdasan/kedudukan, serta sering menerima pujian tanpa rasa syukur kepada Allah Swt.
+                    </div>
+                </div>
+
+                <!-- 4. Hasad Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm">4</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg">Hasad (Iri Dengki) & Ghibthah</h4>
+                    </div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                        <p><b>Hasad:</b> Rasa tidak senang melihat orang lain mendapatkan nikmat dan berharap nikmat tersebut hilang dari orang itu.</p>
+                        <p><b>Bahaya Hasad (H.R. Abu Dawud):</b> <i>"Hasad itu memakan kebaikan sebagaimana api memakan kayu bakar."</i></p>
+                        <div class="bg-emerald-50 dark:bg-emerald-950/50 p-3 rounded-xl border border-emerald-200 dark:border-emerald-800">
+                            <span class="font-bold text-emerald-700 dark:text-emerald-300 block mb-1">Ghibthah (Iri yang Diperbolehkan):</span>
+                            <p class="text-xs">Menginginkan kebaikan yang dimiliki orang lain tanpa berharap nikmat itu hilang. Khususnya pada dua hal (H.R. Ahmad):</p>
+                            <ol class="list-decimal pl-4 text-xs mt-1 space-y-0.5">
+                                <li>Orang kaya yang menghabiskan hartanya di jalan kebenaran.</li>
+                                <li>Orang yang diberi hikmah/ilmu Al-Qur'an lalu mengamalkan & mengajarkannya.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= TAB 3: LKPD INTERAKTIF ================= -->
+        <section id="tab-lkpd" class="tab-content hidden space-y-8">
+            
+            <!-- LKPD Header & Group Info Input Card -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-4 dark:border-slate-700">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                            <i class="fa-solid fa-file-pen text-emerald-600"></i>
+                            <span>Identitas Peserta Didik / Kelompok</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Isilah identitas ini sebelum mengerjakan lembar kerja di bawah.</p>
+                    </div>
+                    <button onclick="saveLkpdData()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold flex items-center space-x-1.5 shadow-md shadow-emerald-600/20 transition">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span>Simpan Jawaban</span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm">
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Nama Kelompok / Siswa:</label>
+                        <input type="text" id="lkpd-nama-kelompok" oninput="autoSaveLkpd()" placeholder="Contoh: Kelompok 1 / Ahmad" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Kelas:</label>
+                        <input type="text" id="lkpd-kelas" oninput="autoSaveLkpd()" placeholder="Contoh: X - 1" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Anggota 1 & 2:</label>
+                        <input type="text" id="lkpd-anggota-1" oninput="autoSaveLkpd()" placeholder="Nama anggota 1, 2" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Anggota 3 & 4:</label>
+                        <input type="text" id="lkpd-anggota-2" oninput="autoSaveLkpd()" placeholder="Nama anggota 3, 4" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= LKPD PERTEMUAN 1 ================= -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                <div class="bg-emerald-50 dark:bg-emerald-950/60 p-4 rounded-xl border border-emerald-200 dark:border-emerald-800 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-800 dark:text-emerald-200 text-base">LKPD PERTEMUAN 1: Analisis Akhlak Mazmumah & Media Sosial</h3>
+                        <p class="text-xs text-emerald-600 dark:text-emerald-400">Fokus: Berfoya-foya (Tabzir), Ria, dan Sumah.</p>
+                    </div>
+                    <span class="px-3 py-1 bg-emerald-600 text-white rounded-full text-xs font-bold">Diskusi Kelompok</span>
+                </div>
+
+                <!-- Lembar Aktivitas 1: Matriks Analisis Konsep -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base flex items-center space-x-2">
+                        <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center">1</span>
+                        <span>Lembar Aktivitas 1: Matriks Analisis Konsep & Dalil</span>
+                    </h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Lengkapilah tabel di bawah berdasarkan bahan ajar dan diskusi kelompok Anda!</p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs sm:text-sm text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
+                                    <th class="p-3 border dark:border-slate-600 w-1/4">Perilaku Mazmumah</th>
+                                    <th class="p-3 border dark:border-slate-600 w-1/4">Pengertian Singkat</th>
+                                    <th class="p-3 border dark:border-slate-600 w-1/4">Dasar Dalil (Surah/Ayat)</th>
+                                    <th class="p-3 border dark:border-slate-600 w-1/4">Bahaya / Dampak Negatif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-3 border dark:border-slate-700 font-bold bg-slate-50 dark:bg-slate-800/50">Berfoya-foya (Tabzir)</td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-p1" oninput="autoSaveLkpd()" rows="3" placeholder="Tuliskan pengertian tabzir..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-d1" oninput="autoSaveLkpd()" rows="3" placeholder="Contoh: Q.S. Al-Isra': 26-27" class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-b1" oninput="autoSaveLkpd()" rows="3" placeholder="Dampak negatif..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border dark:border-slate-700 font-bold bg-slate-50 dark:bg-slate-800/50">Ria (Khalis & Syirik)</td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-p2" oninput="autoSaveLkpd()" rows="3" placeholder="Tuliskan pengertian ria..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-d2" oninput="autoSaveLkpd()" rows="3" placeholder="Contoh: Q.S. Al-Ma'un: 4-7" class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-b2" oninput="autoSaveLkpd()" rows="3" placeholder="Dampak negatif..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border dark:border-slate-700 font-bold bg-slate-50 dark:bg-slate-800/50">Sumah</td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-p3" oninput="autoSaveLkpd()" rows="3" placeholder="Tuliskan pengertian sumah..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-d3" oninput="autoSaveLkpd()" rows="3" placeholder="Contoh: Hadis Nabi tentang sumah" class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                    <td class="p-2 border dark:border-slate-700">
+                                        <textarea id="lkpd1-b3" oninput="autoSaveLkpd()" rows="3" placeholder="Dampak negatif..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Lembar Aktivitas 2: Studi Kasus Digital -->
+                <div class="space-y-3 pt-4 border-t dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base flex items-center space-x-2">
+                        <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center">2</span>
+                        <span>Lembar Aktivitas 2: Studi Kasus Digital</span>
+                    </h4>
+
+                    <div class="p-4 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                        <span class="font-bold text-amber-800 dark:text-amber-300 block mb-1"><i class="fa-solid fa-comments"></i> Skenario Kasus:</span>
+                        "Seseorang sering membagikan momen saat bersedekah di media sosial dengan narasi yang menonjolkan nominal uangnya demi konten, tetapi berdalih ingin menginspirasi orang lain."
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm">
+                        <div>
+                            <label class="block font-semibold text-slate-800 dark:text-slate-200 mb-1">
+                                1. Menurut kelompok Anda, apakah perbuatan tersebut berpotensi tergolong ria atau sumah? Berikan alasannya!
+                            </label>
+                            <textarea id="lkpd1-kasus1" oninput="autoSaveLkpd()" rows="3" placeholder="Tuliskan analisis kelompok Anda..." class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-800 dark:text-slate-200 mb-1">
+                                2. Bagaimanakah solusi praktis agar kebaikan tersebut tetap memiliki nilai dakwah tanpa mengotori keikhlasan niat di hadapan Allah Swt.?
+                            </label>
+                            <textarea id="lkpd1-kasus2" oninput="autoSaveLkpd()" rows="3" placeholder="Tuliskan merumuskan solusi kelompok Anda..." class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= LKPD PERTEMUAN 2 ================= -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                <div class="bg-amber-50 dark:bg-amber-950/60 p-4 rounded-xl border border-amber-200 dark:border-amber-800 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-bold text-amber-800 dark:text-amber-200 text-base">LKPD PERTEMUAN 2: Matriks Penanganan Takabur & Hasad</h3>
+                        <p class="text-xs text-amber-600 dark:text-amber-400">Analisislah situasi kehidupan nyata dan tentukan solusi Islami.</p>
+                    </div>
+                    <span class="px-3 py-1 bg-amber-600 text-white rounded-full text-xs font-bold">Matriks Analisis</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs sm:text-sm text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
+                                <th class="p-3 border dark:border-slate-600 w-12 text-center">No</th>
+                                <th class="p-3 border dark:border-slate-600 w-1/3">Situasi / Fenomena Realitas</th>
+                                <th class="p-3 border dark:border-slate-600 w-1/4">Potensi Penyakit Hati (Takabur / Hasad)</th>
+                                <th class="p-3 border dark:border-slate-600">Tindakan Preventif / Solusi Islami</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 border dark:border-slate-700 text-center font-bold">1</td>
+                                <td class="p-3 border dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                                    Membaca status teman di media sosial yang berhasil menjuarai lomba tingkat nasional.
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <input type="text" id="lkpd2-p1" oninput="autoSaveLkpd()" placeholder="Contoh: Hasad (iri)" class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <textarea id="lkpd2-s1" oninput="autoSaveLkpd()" rows="2" placeholder="Tuliskan tindakan preventif/mendoakan..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border dark:border-slate-700 text-center font-bold">2</td>
+                                <td class="p-3 border dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                                    Terpilih menjadi ketua OSIS dan meraih nilai akademik tertinggi di sekolah.
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <input type="text" id="lkpd2-p2" oninput="autoSaveLkpd()" placeholder="Contoh: Takabur / Ujub" class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <textarea id="lkpd2-s2" oninput="autoSaveLkpd()" rows="2" placeholder="Tuliskan tindakan bersyukur/tawaduk..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border dark:border-slate-700 text-center font-bold">3</td>
+                                <td class="p-3 border dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                                    Melihat teman sekelas selalu memakai pakaian dan gawai (gadget) keluaran terbaru.
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <input type="text" id="lkpd2-p3" oninput="autoSaveLkpd()" placeholder="Potensi penyakit hati..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <textarea id="lkpd2-s3" oninput="autoSaveLkpd()" rows="2" placeholder="Tindakan qana'ah..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border dark:border-slate-700 text-center font-bold">4</td>
+                                <td class="p-3 border dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                                    Mendapat pujian dari guru di hadapan seluruh siswa kelas atas keaktifannya.
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <input type="text" id="lkpd2-p4" oninput="autoSaveLkpd()" placeholder="Potensi penyakit hati..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+                                </td>
+                                <td class="p-2 border dark:border-slate-700">
+                                    <textarea id="lkpd2-s4" oninput="autoSaveLkpd()" rows="2" placeholder="Tindakan merendahkan hati..." class="w-full p-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-white focus:ring-1 focus:ring-emerald-500 focus:outline-none"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Toast / Message Box for Saving -->
+            <div id="save-toast" class="hidden fixed bottom-6 right-6 bg-emerald-600 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 z-50 animate-bounce">
+                <i class="fa-solid fa-circle-check text-xl"></i>
+                <span class="text-sm font-semibold">Data LKPD berhasil disimpan di peramban Anda!</span>
+            </div>
+        </section>
+
+        <!-- ================= TAB 4: KUIS & ASESMEN SUMATIF ================= -->
+        <section id="tab-kuis" class="tab-content hidden space-y-8">
+            
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-list-check text-emerald-600"></i>
+                        <span>Asesmen Sumatif & Evaluasi Pemahaman</span>
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Kerjakan soal pilihan ganda, pilihan kompleks, menjodohkan, dan uraian HOTS di bawah ini.</p>
+                </div>
+                <button onclick="calculateQuizScore()" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-xl text-xs flex items-center space-x-2 shadow-lg shadow-amber-500/20 transition">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>Cek Perolehan Nilai</span>
+                </button>
+            </div>
+
+            <!-- Quiz Result Card (Hidden Initially) -->
+            <div id="quiz-result-card" class="hidden bg-emerald-900 text-white p-6 rounded-2xl shadow-xl space-y-3">
+                <div class="flex justify-between items-center">
+                    <h4 class="font-bold text-emerald-200 text-lg">Hasil Asesmen Sumatif Anda</h4>
+                    <span id="quiz-badge" class="px-3 py-1 bg-amber-400 text-slate-900 rounded-full font-bold text-xs">Sangat Baik</span>
+                </div>
+                <div class="flex items-baseline space-x-3">
+                    <span id="quiz-total-score" class="text-4xl font-extrabold text-amber-300">0 / 100</span>
+                    <span class="text-xs text-emerald-200">Total poin dari seluruh komponen soal teruji.</span>
+                </div>
+                <p id="quiz-feedback-text" class="text-xs sm:text-sm text-slate-200 leading-relaxed"></p>
+            </div>
+
+            <!-- BAGIAN I: PILIHAN GANDA (MC) -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                <div class="border-b pb-3 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Bagian I: Pilihan Ganda Standard</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Pilihlah satu jawaban yang paling tepat!</p>
+                </div>
+
+                <!-- Soal 1 -->
+                <div class="space-y-3 text-xs sm:text-sm">
+                    <p class="font-bold text-slate-800 dark:text-slate-200">
+                        1. Perhatikan Q.S. Al-Isra' [17]: 27 berikut: 
+                        <span class="font-quran text-lg text-emerald-700 dark:text-emerald-400 block my-1">إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ</span>
+                        Pernyataan yang paling sesuai dengan isi kandungan ayat di atas adalah...
+                    </p>
+                    <div class="space-y-2 pl-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-1" value="A" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>A. Orang yang pemboros akan dijamin masuk neraka bersama setan.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-1" value="B" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>B. Perilaku boros (tabzir) merupakan cerminan dari perbuatan setan yang sangat ingkar kepada Tuhan.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-1" value="C" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>C. Setan akan memberikan hartanya kepada orang-orang yang suka bersedekah.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-1" value="D" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>D. Pemboros adalah orang yang tidak mau bekerja keras.</span>
+                        </label>
+                    </div>
+                    <!-- Explanation box (visible for guru or post score check) -->
+                    <div id="exp-pg-1" class="hidden p-3 bg-emerald-50 dark:bg-emerald-950/50 rounded-xl text-xs text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                        <b>Kunci Jawaban: B.</b> Ayat tersebut secara eksplisit menyatakan bahwa orang-orang yang berbuat pemborosan (tabzir) adalah saudara-saudara setan.
+                    </div>
+                </div>
+
+                <!-- Soal 2 -->
+                <div class="space-y-3 text-xs sm:text-sm border-t pt-4 dark:border-slate-700">
+                    <p class="font-bold text-slate-800 dark:text-slate-200">
+                        2. Seseorang yang melakukan ibadah shalat secara khusyuk hanya ketika berada di hadapan orang banyak, namun malas dan terburu-buru saat shalat sendirian di rumah, menunjukkan indikasi penyakit hati berupa...
+                    </p>
+                    <div class="space-y-2 pl-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-2" value="A" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>A. Hasad</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-2" value="B" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>B. Takabur</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-2" value="C" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>C. Ria</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-2" value="D" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>D. Tabzir</span>
+                        </label>
+                    </div>
+                    <div id="exp-pg-2" class="hidden p-3 bg-emerald-50 dark:bg-emerald-950/50 rounded-xl text-xs text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                        <b>Kunci Jawaban: C (Ria).</b> Menampakkan kekhusyukan ibadah demi mendapat sanjungan manusia merupakan sifat ria.
+                    </div>
+                </div>
+
+                <!-- Soal 3 -->
+                <div class="space-y-3 text-xs sm:text-sm border-t pt-4 dark:border-slate-700">
+                    <p class="font-bold text-slate-800 dark:text-slate-200">
+                        3. Rasulullah Saw. menegaskan dalam hadis riwayat Abu Dawud bahwa sifat hasad sangat berbahaya karena...
+                    </p>
+                    <div class="space-y-2 pl-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-3" value="A" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>A. Menghilangkan seluruh harta benda seseorang di dunia.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-3" value="B" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>B. Memakan pahala amalan kebaikan sebagaimana api memakan kayu bakar.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-3" value="C" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>C. Menyebabkan seseorang menjadi miskin di dunia.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="radio" name="pg-3" value="D" class="text-emerald-600 focus:ring-emerald-500">
+                            <span>D. Menghapus dosa-dosa orang lain secara otomatis.</span>
+                        </label>
+                    </div>
+                    <div id="exp-pg-3" class="hidden p-3 bg-emerald-50 dark:bg-emerald-950/50 rounded-xl text-xs text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                        <b>Kunci Jawaban: B.</b> Hadis riwayat Abu Dawud menyebutkan bahwa dengki/hasad menghanguskan pahala kebaikan seperti api memakan kayu bakar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN II: PILIHAN GANDA KOMPLEKS -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                <div class="border-b pb-3 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Bagian II: Pilihan Ganda Kompleks (Jawaban Bisa Lebih dari Satu)</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Pilihlah semua opsi jawaban yang benar!</p>
+                </div>
+
+                <!-- Soal Kompleks 1 -->
+                <div class="space-y-3 text-xs sm:text-sm">
+                    <p class="font-bold text-slate-800 dark:text-slate-200">
+                        1. Manakah di antara pernyataan berikut yang merupakan indikasi perilaku sumah di era digital? (Centang jawaban yang tepat)
+                    </p>
+                    <div class="space-y-2 pl-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk1-1" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Menceritakan amalan bersedekah di media sosial agar dipuji sebagai orang dermawan.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk1-2" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Mengunggah jadwal kegiatan resmi sekolah untuk transparansi publik.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk1-3" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Mengumumkan secara lisan karya kebaikannya agar didengar dan disanjung oleh orang lain.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk1-4" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Mengajak teman shalat berjamaah secara langsung tanpa pamer.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Soal Kompleks 2 -->
+                <div class="space-y-3 text-xs sm:text-sm border-t pt-4 dark:border-slate-700">
+                    <p class="font-bold text-slate-800 dark:text-slate-200">
+                        2. Berikut adalah faktor-faktor pemicu timbulnya sifat takabur pada diri seseorang: (Centang jawaban yang tepat)
+                    </p>
+                    <div class="space-y-2 pl-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk2-1" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Memiliki popularitas dan pengikut yang banyak di media sosial.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk2-2" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Merasa memiliki kecerdasan dan kedudukan yang lebih tinggi dari orang lain.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk2-3" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Senantiasa menyadari bahwa kelebihan fisik adalah titipan sementara dari Allah Swt.</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700">
+                            <input type="checkbox" id="pgk2-4" class="rounded text-emerald-600 focus:ring-emerald-500">
+                            <span>Sering menerima pujian tanpa menyertakan rasa syukur kepada Allah Swt.</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN III: MENJODOHKAN -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                <div class="border-b pb-3 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Bagian III: Menjodohkan Istilah</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Jodohkanlah istilah sifat mazmumah di Kolom A dengan deskripsi yang tepat di Kolom B!</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="space-y-3">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700 rounded-xl flex items-center justify-between">
+                            <span class="font-bold">1. Israf</span>
+                            <select id="match-1" class="p-1.5 rounded-lg border dark:bg-slate-800 dark:border-slate-600 text-xs">
+                                <option value="">-- Pilih Pasangan --</option>
+                                <option value="A">A. Memperdengarkan amalan agar dipuji</option>
+                                <option value="B">B. Sikap melampaui batas dalam membelanjakan harta mubah</option>
+                                <option value="C">C. Merasa lebih hebat & memandang rendah orang lain</option>
+                                <option value="D">D. Rasa tidak senang atas nikmat orang lain</option>
+                            </select>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700 rounded-xl flex items-center justify-between">
+                            <span class="font-bold">2. Takabur</span>
+                            <select id="match-2" class="p-1.5 rounded-lg border dark:bg-slate-800 dark:border-slate-600 text-xs">
+                                <option value="">-- Pilih Pasangan --</option>
+                                <option value="A">A. Memperdengarkan amalan agar dipuji</option>
+                                <option value="B">B. Sikap melampaui batas dalam membelanjakan harta mubah</option>
+                                <option value="C">C. Merasa lebih hebat & memandang rendah orang lain</option>
+                                <option value="D">D. Rasa tidak senang atas nikmat orang lain</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700 rounded-xl flex items-center justify-between">
+                            <span class="font-bold">3. Sumah</span>
+                            <select id="match-3" class="p-1.5 rounded-lg border dark:bg-slate-800 dark:border-slate-600 text-xs">
+                                <option value="">-- Pilih Pasangan --</option>
+                                <option value="A">A. Memperdengarkan amalan agar dipuji</option>
+                                <option value="B">B. Sikap melampaui batas dalam membelanjakan harta mubah</option>
+                                <option value="C">C. Merasa lebih hebat & memandang rendah orang lain</option>
+                                <option value="D">D. Rasa tidak senang atas nikmat orang lain</option>
+                            </select>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700 rounded-xl flex items-center justify-between">
+                            <span class="font-bold">4. Hasad</span>
+                            <select id="match-4" class="p-1.5 rounded-lg border dark:bg-slate-800 dark:border-slate-600 text-xs">
+                                <option value="">-- Pilih Pasangan --</option>
+                                <option value="A">A. Memperdengarkan amalan agar dipuji</option>
+                                <option value="B">B. Sikap melampaui batas dalam membelanjakan harta mubah</option>
+                                <option value="C">C. Merasa lebih hebat & memandang rendah orang lain</option>
+                                <option value="D">D. Rasa tidak senang atas nikmat orang lain</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN IV: URAIAN HOTS -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                <div class="border-b pb-3 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Bagian IV: Uraian Penalaran HOTS</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Jawablah pertanyaan dengan analisis yang logis dan komprehensif!</p>
+                </div>
+
+                <div class="space-y-3 text-xs sm:text-sm">
+                    <p class="font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">
+                        <b>Soal:</b> Di era digital saat ini, batas antara menyebarkan motivasi kebaikan dengan perilaku ria atau flexing sangatlah tipis. Menurut analisis Anda, bagaimana kriteria dan langkah praktis bagi seorang Muslim dalam memanfaatkan media sosial untuk dakwah/kebaikan tanpa terperosok ke dalam sifat ria, sumah, dan takabur?
+                    </p>
+                    <textarea id="essay-hots" rows="5" placeholder="Tuliskan jawaban analisis Anda di sini (Meliputi: Niat, Konten, & Sikap Batin)..." class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+                    
+                    <button onclick="toggleTeacherKey('rubrik-essay')" class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold hover:underline flex items-center space-x-1">
+                        <i class="fa-solid fa-key"></i>
+                        <span>Tampilkan Rubrik Jawaban Ideal (Mode Guru)</span>
+                    </button>
+
+                    <div id="rubrik-essay" class="hidden p-4 bg-emerald-50 dark:bg-emerald-950/60 rounded-xl border border-emerald-200 dark:border-emerald-800 text-xs text-slate-700 dark:text-slate-300 space-y-2">
+                        <span class="font-bold text-emerald-800 dark:text-emerald-300 block">Rubrik Jawaban Ideal (3 Kriteria Utama):</span>
+                        <p>1. <b>Kriteria Niat:</b> Meluruskan niat murni karena Allah Swt. (<span class="italic">tazkiyatun nufus</span>), bukan mengharap likes, comments, atau pujian netizen.</p>
+                        <p>2. <b>Konten Edukatif:</b> Memastikan materi bernilai edukatif, tidak memamerkan kemewahan (israf/flexing), serta tidak merendahkan pihak lain.</p>
+                        <p>3. <b>Sikap Batin:</b> Tetap rendah hati (<span class="italic">tawaduk</span>) dan tidak merasa lebih suci atau lebih baik dibanding audiens (menjauhi ujub & takabur).</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= TAB 5: RUBRIK PENILAIAN & REFLEKSI ================= -->
+        <section id="tab-rubrik" class="tab-content hidden space-y-8">
+            
+            <!-- Asesmen Diagnostik Non-Kognitif (Refleksi Diri) -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                <div class="border-b pb-3 dark:border-slate-700">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-heart-pulse text-rose-500"></i>
+                        <span>Asesmen Diagnostik Non-Kognitif & Refleksi Penggunaan Medsos</span>
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Jawablah pertanyaan reflektif berikut untuk mengukur kesiapan dan kenyamanan belajar Anda.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 space-y-2">
+                        <label class="font-bold text-slate-800 dark:text-slate-200 block">1. Kenyamanan Kelas:</label>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Apakah Anda merasa tenang saat mengikuti kegiatan belajar PAI hari ini?</p>
+                        <select class="w-full p-2 rounded-lg border dark:bg-slate-800 dark:border-slate-600">
+                            <option>Sangat Nyaman & Tenang</option>
+                            <option>Cukup Nyaman</option>
+                            <option>Kurang Nyaman</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 space-y-2">
+                        <label class="font-bold text-slate-800 dark:text-slate-200 block">2. Durasi Medsos / Hari:</label>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Berapa jam rata-rata Anda menggunakan media sosial per hari?</p>
+                        <select class="w-full p-2 rounded-lg border dark:bg-slate-800 dark:border-slate-600">
+                            <option>&lt; 1 Jam per hari</option>
+                            <option>1 - 3 Jam per hari</option>
+                            <option>3 - 5 Jam per hari</option>
+                            <option>&gt; 5 Jam per hari (Sangat Tinggi)</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 space-y-2">
+                        <label class="font-bold text-slate-800 dark:text-slate-200 block">3. Pendampingan Ortu:</label>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Bagaimana pengawasan orang tua terhadap gawai Anda di rumah?</p>
+                        <select class="w-full p-2 rounded-lg border dark:bg-slate-800 dark:border-slate-600">
+                            <option>Selalu Diingatkan & Didampingi</option>
+                            <option>Kadang-kadang Diingatkan</option>
+                            <option>Bebas Mandiri</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tugas Proyek Keterampilan -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-xl">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">Tugas Proyek Keterampilan (Infografis / Makalah Edukasi)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Instruksi Proyek Edukasi Digital Generasi Z.</p>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 dark:bg-amber-950/40 p-4 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-2">
+                    <span class="font-bold text-amber-800 dark:text-amber-300">Judul Proyek:</span> "Langkah Generasi Z dalam Menjauhi Perilaku Mazmumah di Era Digital/Teknologi"
+                    <p class="leading-relaxed">
+                        <b>Instruksi:</b> Secara individu atau berpasangan, susunlah poster/infografis edukatif (menggunakan Canva atau gambar tangan) yang menganalisis tantangan Gen-Z menghadapi budaya flexing, cyberbullying, dan hasad, lengkap dengan solusi berbasis Al-Qur'an dan Hadis.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Rubrik Penilaian Sikap (Profil Pelajar Pancasila) -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-table-list text-emerald-600"></i>
+                    <span>Rubrik Penilaian Sikap (Profil Pelajar Pancasila)</span>
+                </h3>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
+                                <th class="p-3 border dark:border-slate-600">Dimensi</th>
+                                <th class="p-3 border dark:border-slate-600">Indikator</th>
+                                <th class="p-3 border dark:border-slate-600">Skor 1 (Kurang)</th>
+                                <th class="p-3 border dark:border-slate-600">Skor 2 (Cukup)</th>
+                                <th class="p-3 border dark:border-slate-600">Skor 3 (Baik)</th>
+                                <th class="p-3 border dark:border-slate-600">Skor 4 (Sangat Baik)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-600 dark:text-slate-300">
+                            <tr>
+                                <td class="p-3 border dark:border-slate-700 font-bold">Beriman & Bertakwa</td>
+                                <td class="p-3 border dark:border-slate-700">Rendah hati (tawaduk) & menghargai teman.</td>
+                                <td class="p-3 border dark:border-slate-700">Belum konsisten tawaduk.</td>
+                                <td class="p-3 border dark:border-slate-700">Mulai tawaduk dengan bimbingan.</td>
+                                <td class="p-3 border dark:border-slate-700">Konsisten menunjukkan tawaduk.</td>
+                                <td class="p-3 border dark:border-slate-700">Selalu tawaduk & jadi teladan.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border dark:border-slate-700 font-bold">Kemandirian</td>
+                                <td class="p-3 border dark:border-slate-700">Kontrol diri konsumtif & gawai.</td>
+                                <td class="p-3 border dark:border-slate-700">Sering terdistraksi gawai.</td>
+                                <td class="p-3 border dark:border-slate-700">Kontrol diri jika diingatkan.</td>
+                                <td class="p-3 border dark:border-slate-700">Mampu kontrol diri mandiri.</td>
+                                <td class="p-3 border dark:border-slate-700">Kontrol diri tinggi & disiplin.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border dark:border-slate-700 font-bold">Penalaran Kritis</td>
+                                <td class="p-3 border dark:border-slate-700">Menganalisis flexing & penyakit hati.</td>
+                                <td class="p-3 border dark:border-slate-700">Belum mampu analisis.</td>
+                                <td class="p-3 border dark:border-slate-700">Analisis kasus sederhana.</td>
+                                <td class="p-3 border dark:border-slate-700">Analisis dengan argumen logis.</td>
+                                <td class="p-3 border dark:border-slate-700">Analisis mendalam berbasis dalil.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Signature Box -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 dark:text-slate-400 gap-4">
+                <div>
+                    <p>Mengetahui,</p>
+                    <p class="font-bold text-slate-800 dark:text-slate-200 mt-1">Kepala Sekolah SMA / MA</p>
+                    <p class="mt-8">NIP. ....................................................</p>
+                </div>
+                <div class="text-right sm:text-right">
+                    <p>Guru Mata Pelajaran PAI & BP</p>
+                    <p class="font-bold text-slate-800 dark:text-slate-200 mt-1">SMA / MA Kelas X</p>
+                    <p class="mt-8">NIP. ....................................................</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-auto no-print">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p>Modul Ajar & LKPD Interaktif PAI & BP Kelas X • Bab 3: Menghindari Sifat Berfoya-foya, Ria, Sumah, Takabur, dan Hasad</p>
+            <p class="text-slate-500">Dirancang sesuai Kurikulum Merdeka (Panduan PPA Edisi Revisi) • Tahun Ajaran 2025/2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Global App State
+        let currentMode = 'siswa'; // 'siswa' or 'guru'
+
+        // Window Load & Initialization
+        window.onload = function() {
+            loadSavedLkpd();
+            updateProgressBar();
+        };
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Remove active styles from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'dark:bg-emerald-950', 'dark:text-emerald-300', 'border', 'border-emerald-200', 'dark:border-emerald-800');
+                btn.classList.add('text-slate-600', 'dark:text-slate-300');
+            });
+
+            // Show current tab
+            const targetTab = document.getElementById(tabId);
+            if(targetTab) targetTab.classList.remove('hidden');
+
+            // Style active button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'dark:bg-emerald-950', 'dark:text-emerald-300', 'border', 'border-emerald-200', 'dark:border-emerald-800');
+                activeBtn.classList.remove('text-slate-600', 'dark:text-slate-300');
+            }
+        }
+
+        // Mode Switching Logic (Siswa vs Guru)
+        function toggleUserMode() {
+            if(currentMode === 'siswa') {
+                currentMode = 'guru';
+                document.getElementById('mode-badge').className = "px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 flex items-center space-x-1.5 border border-amber-300 dark:border-amber-800";
+                document.getElementById('mode-text').innerText = 'Modus Guru';
+                document.getElementById('toggle-target-text').innerText = 'Modus Siswa';
+
+                // Reveal answers and keys for teacher mode
+                document.querySelectorAll('[id^="exp-pg-"]').forEach(el => el.classList.remove('hidden'));
+                document.getElementById('rubrik-essay').classList.remove('hidden');
+            } else {
+                currentMode = 'siswa';
+                document.getElementById('mode-badge').className = "px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 flex items-center space-x-1.5 border border-emerald-300 dark:border-emerald-800";
+                document.getElementById('mode-text').innerText = 'Modus Siswa';
+                document.getElementById('toggle-target-text').innerText = 'Modus Guru';
+
+                // Hide teacher keys
+                document.querySelectorAll('[id^="exp-pg-"]').forEach(el => el.classList.add('hidden'));
+                document.getElementById('rubrik-essay').classList.add('hidden');
+            }
+        }
+
+        // Teacher Key Toggle for individual elements
+        function toggleTeacherKey(elementId) {
+            const el = document.getElementById(elementId);
+            if(el) el.classList.toggle('hidden');
+        }
+
+        // Auto Save & Progress Calculation for LKPD
+        const lkpdFields = [
+            'lkpd-nama-kelompok', 'lkpd-kelas', 'lkpd-anggota-1', 'lkpd-anggota-2',
+            'lkpd1-p1', 'lkpd1-d1', 'lkpd1-b1',
+            'lkpd1-p2', 'lkpd1-d2', 'lkpd1-b2',
+            'lkpd1-p3', 'lkpd1-d3', 'lkpd1-b3',
+            'lkpd1-kasus1', 'lkpd1-kasus2',
+            'lkpd2-p1', 'lkpd2-s1', 'lkpd2-p2', 'lkpd2-s2',
+            'lkpd2-p3', 'lkpd2-s3', 'lkpd2-p4', 'lkpd2-s4'
+        ];
+
+        function autoSaveLkpd() {
+            const data = {};
+            lkpdFields.forEach(id => {
+                const el = document.getElementById(id);
+                if(el) data[id] = el.value;
+            });
+            localStorage.setItem('lkpd_pai_bab3_data', JSON.stringify(data));
+            updateProgressBar();
+        }
+
+        function loadSavedLkpd() {
+            const saved = localStorage.getItem('lkpd_pai_bab3_data');
+            if(saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    lkpdFields.forEach(id => {
+                        const el = document.getElementById(id);
+                        if(el && data[id] !== undefined) el.value = data[id];
+                    });
+                } catch(e) {
+                    console.error("Error loading saved data", e);
+                }
+            }
+        }
+
+        function saveLkpdData() {
+            autoSaveLkpd();
+            const toast = document.getElementById('save-toast');
+            if(toast) {
+                toast.classList.remove('hidden');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 3000);
+            }
+        }
+
+        function updateProgressBar() {
+            let filled = 0;
+            lkpdFields.forEach(id => {
+                const el = document.getElementById(id);
+                if(el && el.value.trim().length > 0) filled++;
+            });
+            const percent = Math.round((filled / lkpdFields.length) * 100);
+            
+            const statusEl = document.getElementById('completion-status');
+            const barEl = document.getElementById('progress-bar');
+            
+            if(statusEl) statusEl.innerText = percent + '% Selesai';
+            if(barEl) barEl.style.width = percent + '%';
+        }
+
+        // Quiz Scoring Logic
+        function calculateQuizScore() {
+            let totalScore = 0;
+
+            // 1. Multiple Choice Scoring (15 pts each = 45 pts total)
+            const pgAnswers = { 'pg-1': 'B', 'pg-2': 'C', 'pg-3': 'B' };
+            let pgScore = 0;
+            for (let key in pgAnswers) {
+                const selected = document.querySelector(`input[name="${key}"]:checked`);
+                if(selected && selected.value === pgAnswers[key]) {
+                    pgScore += 15;
+                }
+            }
+            totalScore += pgScore;
+
+            // 2. Complex MC Scoring (15 pts each = 30 pts total)
+            // Q1: Option 1 & 3 correct
+            const pgk1_1 = document.getElementById('pgk1-1')?.checked;
+            const pgk1_2 = document.getElementById('pgk1-2')?.checked;
+            const pgk1_3 = document.getElementById('pgk1-3')?.checked;
+            const pgk1_4 = document.getElementById('pgk1-4')?.checked;
+            if(pgk1_1 && !pgk1_2 && pgk1_3 && !pgk1_4) totalScore += 15;
+
+            // Q2: Option 1, 2 & 4 correct
+            const pgk2_1 = document.getElementById('pgk2-1')?.checked;
+            const pgk2_2 = document.getElementById('pgk2-2')?.checked;
+            const pgk2_3 = document.getElementById('pgk2-3')?.checked;
+            const pgk2_4 = document.getElementById('pgk2-4')?.checked;
+            if(pgk2_1 && pgk2_2 && !pgk2_3 && pgk2_4) totalScore += 15;
+
+            // 3. Matching Exercise Scoring (15 pts total)
+            const m1 = document.getElementById('match-1')?.value;
+            const m2 = document.getElementById('match-2')?.value;
+            const m3 = document.getElementById('match-3')?.value;
+            const m4 = document.getElementById('match-4')?.value;
+            if(m1 === 'B' && m2 === 'C' && m3 === 'A' && m4 === 'D') {
+                totalScore += 15;
+            } else {
+                let matchSub = 0;
+                if(m1 === 'B') matchSub += 3.75;
+                if(m2 === 'C') matchSub += 3.75;
+                if(m3 === 'A') matchSub += 3.75;
+                if(m4 === 'D') matchSub += 3.75;
+                totalScore += matchSub;
+            }
+
+            // 4. HOTS Essay presence check (10 pts)
+            const essayVal = document.getElementById('essay-hots')?.value.trim();
+            if(essayVal && essayVal.length > 20) {
+                totalScore += 10;
+            }
+
+            // Round final score
+            totalScore = Math.min(100, Math.round(totalScore));
+
+            // Display Result
+            const card = document.getElementById('quiz-result-card');
+            const scoreText = document.getElementById('quiz-total-score');
+            const feedbackText = document.getElementById('quiz-feedback-text');
+            const badge = document.getElementById('quiz-badge');
+
+            if(card && scoreText && feedbackText && badge) {
+                card.classList.remove('hidden');
+                scoreText.innerText = `${totalScore} / 100`;
+
+                if(totalScore >= 85) {
+                    badge.innerText = 'Sangat Baik (A)';
+                    badge.className = 'px-3 py-1 bg-amber-400 text-slate-900 rounded-full font-bold text-xs';
+                    feedbackText.innerText = 'Muarasyallah! Pemahaman Anda mengenai materi dan dalil penyucian jiwa (tazkiyatun nufus) sangat komprehensif. Pertahankan kebiasaan baik dan penerapan tawaduk di kehidupan sehari-hari!';
+                } else if(totalScore >= 70) {
+                    badge.innerText = 'Baik (B)';
+                    badge.className = 'px-3 py-1 bg-emerald-400 text-slate-900 rounded-full font-bold text-xs';
+                    feedbackText.innerText = 'Alhamdulillah, Anda telah memahami sebagian besar konsep akhlak mazmumah. Silakan ulas kembali beberapa detail materi pada tab Bahan Ajar.';
+                } else {
+                    badge.innerText = 'Perlu Pendampingan (C)';
+                    badge.className = 'px-3 py-1 bg-rose-400 text-slate-900 rounded-full font-bold text-xs';
+                    feedbackText.innerText = 'Silakan pelajari kembali ringkasan materi dan dalil Al-Qur\'an di tab Bahan Ajar, lalu diskusikan bersama guru atau kelompok belajar Anda.';
+                }
+
+                // Smooth scroll to results
+                card.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
